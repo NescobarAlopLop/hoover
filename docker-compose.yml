@@ -1,0 +1,19 @@
+version: "3.9"
+   
+services:
+  mongo:
+    image : mongo
+    container_name: mongodb
+    volumes:
+      - ./data/db:/data/db
+    ports:
+      - 27017:27017
+  web:
+    build: .
+    command: python tweet_stream.py
+    volumes:
+      - .:/code
+    environment:
+      - BEARER_TOKEN=${BEARER_TOKEN}
+    depends_on:
+      - mongo
