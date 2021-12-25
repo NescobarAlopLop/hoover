@@ -1,2 +1,2 @@
 # hoover
-learning go while browsing twitter
+discovering twitter API
