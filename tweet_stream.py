@@ -48,7 +48,7 @@ def main():
     mongo_client = pymongo.MongoClient('mongodb', 27017)
     while True:
         for tweet in tweets(url):
-            mongo_client.tweets.tweets_stream.insert_one(
+            mongo_client.tweets.sample_stream.insert_one(
                 tweet,
             )
 
